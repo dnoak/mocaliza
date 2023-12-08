@@ -69,7 +69,7 @@ app.post('/api/marca', async (req, res) => {
 
 
 app.delete('/api/categories/:id', async (req, res) => {
-	const id = parseInt(req.param.id);
+	const id = parseInt(req.params.id);
 	try {
 		await categoryController.destroy(id);
 		res.status(204);
@@ -83,7 +83,7 @@ app.delete('/api/categories/:id', async (req, res) => {
 });
 
 app.delete('/api/marca/:id', async (req, res) => {
-	const id = parseInt(req.param.id);
+	const id = parseInt(req.params.id);
 	try {
 		await marcaController.destroy(id);
 		res.status(204);
@@ -97,6 +97,7 @@ app.delete('/api/marca/:id', async (req, res) => {
 });
 
 app.put('/api/categories/:id', async (req, res) => {
+	const id = parseInt(req.params.id);
 	const categoryDto = {
 		name: req.body.name,
 		active: req.body.active,
@@ -115,6 +116,7 @@ app.put('/api/categories/:id', async (req, res) => {
 });
 
 app.put('/api/marca/:id', async (req, res) => {
+	const id = parseInt(req.params.id);
 	const marcaDto = {
 		id: req.body.id,
 		nome: req.body.nome,
